@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS adlister_db;
 
 CREATE DATABASE adlister_db;
 CREATE USER IF NOT EXISTS 'addlister'@'localhost' IDENTIFIED by 'codeup';
-GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP ON adlister_db.*;
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP ON adlister_db.* TO 'addlister'@'localhost';
 
 USE adlister_db;
 
