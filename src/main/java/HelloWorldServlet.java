@@ -8,9 +8,19 @@ import java.io.*;
 public class HelloWorldServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
 
+
         res.setContentType("text/html");
         PrintWriter out = res.getWriter();
-        out.println("<h1>Hello, World!</h1>");
+
+        //out.println(req.getParameter("name"));
+
+        if(req.getParameter("name") == null) {
+            out.println("<h1>Hello, World!</h1>");
+        } else {
+            out.println("<h1>Hello, "+ req.getParameter("name") +"</h1>");
+        }
 
     }
 }
+
+
