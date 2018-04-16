@@ -1,8 +1,8 @@
 DROP DATABASE IF EXISTS adlister_db;
 
 CREATE DATABASE adlister_db;
-CREATE USER IF NOT EXISTS 'addlister'@'localhost' IDENTIFIED by 'codeup';
-GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP ON adlister_db.* TO 'addlister'@'localhost';
+CREATE USER IF NOT EXISTS 'adlister'@'localhost' IDENTIFIED by 'codeup';
+GRANT ALL PRIVILEGES  ON adlister_db.* TO 'adlister'@'localhost';
 
 USE adlister_db;
 
@@ -24,4 +24,8 @@ CREATE TABLE IF NOT EXISTS ads (
 );
 
 # Default web user account
-INSERT INTO users(username, email,password) VALUES ('admin','me@open.com','password')
+INSERT INTO users(username, email,password) VALUES ('admin','me@open.com','password');
+
+INSERT INTO ads(user_id, title, description) VALUE (1,'one','this is my first add test');
+INSERT INTO ads(user_id, title, description) VALUE (1,'two','this is my secondadd test');
+INSERT INTO ads(user_id, title, description) VALUE (1,'thre fish','this is my third add test');
