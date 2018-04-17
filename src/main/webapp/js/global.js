@@ -1,11 +1,11 @@
-require:  common/library.js;
-require: module/AdCategories.js;
+require("/common/library.js");
+require("/module/AdCategories.js");
 //= require module/some-other-widget.js
 
 
 (function() {
 
-  AdCategories.init();
+    AdCategoriesLoader.init();
   // SomeOtherModule.init();
 
 })();

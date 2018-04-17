@@ -5,4 +5,4 @@
         crossorigin="anonymous">
 </script>
 
-<script type="text/javascript" src='<c:url value="/js/main.js"/>'></script>
+<script type="text/javascript" src='<c:url value="/js/global.js"/>'></script>
