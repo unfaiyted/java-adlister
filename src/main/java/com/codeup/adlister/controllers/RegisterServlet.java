@@ -60,12 +60,11 @@ public class RegisterServlet extends HttpServlet {
             request.setAttribute("errorMessage", message);
             request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
         } else {
-            // TODO: create a new user based off of the submitted information
+            // create a new user based off of the submitted information
 
             DaoFactory.getUsersDao().insert(new User(0, username, email, password));
 
-            // TODO: if a user was successfully created, send them to their profile;
-
+            // if a user was successfully created, send them to their profile;
 
             response.sendRedirect("/profile");
 
