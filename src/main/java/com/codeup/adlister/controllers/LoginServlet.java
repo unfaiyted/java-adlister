@@ -33,7 +33,6 @@ public class LoginServlet extends HttpServlet {
             validAttempt = user.getPassword().equals(password);
         }
 
-
         if (validAttempt) {
             // store the logged in user object in the session, instead of just the username
             request.getSession().setAttribute("user", user);
