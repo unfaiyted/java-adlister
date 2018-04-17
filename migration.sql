@@ -3,6 +3,8 @@ USE adlister_db;
 DROP TABLE IF EXISTS ads;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS categories;
+
+
 CREATE TABLE users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     username VARCHAR(240) UNIQUE NOT NULL,
@@ -24,10 +26,10 @@ CREATE TABLE ads (
 
 CREATE TABLE categories (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  main_id INT UNSIGNED,
-  title VARCHAR(240)
+  main_id INT,
+  title VARCHAR(240),
+    PRIMARY KEY (id)
 );
-
 
 INSERT INTO categories (title,main_id)
     VALUES
