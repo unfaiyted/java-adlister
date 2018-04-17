@@ -1,7 +1,8 @@
-require("/common/library.js");
-require("/module/AdCategories.js");
-//= require module/some-other-widget.js
+let path = "./src/main/webapp/js/"
 
+
+const lib = require("./common/library.js");
+const AdCategoriesLoader = require("./module/AdCategories.js");
 
 (function() {
 
