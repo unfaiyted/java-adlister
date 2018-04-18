@@ -9,4 +9,6 @@ const AdCategoriesLoader = require("./module/AdCategories.js");
     AdCategoriesLoader.init();
   // SomeOtherModule.init();
 
+    console.log(AdCategoriesLoader.test());
+
 })();

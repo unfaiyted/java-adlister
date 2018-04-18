@@ -61,3 +61,27 @@ INSERT INTO categories (title, main_id)
       ('childcare', @commID),
       ('rants', @commID)
 
+
+/* Services */
+INSERT INTO categories (title, main_id)
+VALUES
+  ('automotive', @servID),
+  ('beauty', @servID),
+  ('lessons', @servID),
+  ('pets', @servID),
+  ('travel', @servID),
+  ('household', @servID),
+  ('pet', @servID)
+
+
+/* Services */
+INSERT INTO categories (title, main_id)
+VALUES
+  ('linux', @discID),
+  ('diet', @discID),
+  ('divorce', @discID),
+  ('religion', @discID),
+  ('gaming', @discID),
+  ('gardening', @discID),
+  ('tv', @discID)
+

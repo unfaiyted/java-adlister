@@ -1,4 +1,9 @@
+let s;
+
 module.exports = {
+        test: function() {
+          return "Fish are tests";
+        },
 
         settings: {
             numArticles: 5,
@@ -12,21 +17,32 @@ module.exports = {
         },
 
         bindUIActions: function () {
-            s.showCatButton.on("click", function () {
-                AdCategoriesLoader.loadCategories(clickedId);
 
-            });
+           s.showCatButton.click(function() {
+                    let id = $(this).attr("data-id");
+                    module.exports.loadCat(id);
+           }).on(this);
         },
 
-        loadCategories: function (clickedId) {
-            $.ajax({
-                url: '/ad/getCat?id=' + clickedID,
-                context: document.body
-            }).done(function () {
-                $(this).addClass("done");
+        loadCat: function (clickedId) {
+
+            $('.sub-cat[data-id="'+clickedId+'"]').toggle().empty();;
+
+            $.getJSON('/ad/getCat?id=' + clickedId, function(data) {
+
+                data.forEach(function (cat) {
+                   $('.sub-cat[data-id="'+clickedId+'"]').append(
+                       $('<div>').append(
+                           $('<a href="#">').text(cat.title)
+                       ));
+                })
+
+                console.log(clickedId + " loaded");
+
             });
 
-        }
+            }
+
 
 
     };
