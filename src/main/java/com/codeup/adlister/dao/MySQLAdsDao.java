@@ -39,6 +39,20 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
+    public List<Ad> category(Long Id) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM ads WHERE category_id = ?");
+            stmt.setLong(1, Id);
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving ads in category.", e);
+        }
+    }
+
+
+    @Override
     public Long insert(Ad ad) {
         try {
             String insertQuery = "INSERT INTO ads(user_id, category_id, title, description) VALUES (?, ?, ?, ?)";
@@ -60,7 +74,7 @@ public class MySQLAdsDao implements Ads {
         return new Ad(
             rs.getLong("id"),
             rs.getLong("user_id"),
-            rs.getLong("catId"),
+            rs.getLong("category_id"),
             rs.getString("title"),
             rs.getString("description")
         );

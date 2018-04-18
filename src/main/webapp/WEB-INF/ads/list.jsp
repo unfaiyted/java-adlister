@@ -3,23 +3,23 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Want something? Look here!" />
+        <jsp:param name="title" value="Viewing All The Ads" />
     </jsp:include>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
-    <h1>Where we looking?</h1>
+    <h1>Category Name</h1>
 
-    <c:forEach var="cat" items="${main}">
-        <div class="col-6">
-            <h2 class="ad-cat" data-id="${cat.id}">${cat.title}</h2>
-            <div class="sub-cat" data-id="${cat.id}"></div>
+    <c:forEach var="ad" items="${ads}">
+        <div class="col-md-6">
+            <h2>${ad.title}</h2>
+            <p>${ad.description}</p>
         </div>
     </c:forEach>
 </div>
 
-<jsp:include page="/WEB-INF/partials/footer.jsp" />
 </body>
 </html>
+s

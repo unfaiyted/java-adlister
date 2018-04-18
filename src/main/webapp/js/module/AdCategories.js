@@ -33,7 +33,7 @@ module.exports = {
                 data.forEach(function (cat) {
                    $('.sub-cat[data-id="'+clickedId+'"]').append(
                        $('<div>').append(
-                           $('<a href="#">').text(cat.title)
+                           $(`<a href="/ads/list?cat=${cat.id}">`).text(cat.title)
                        ));
                 })
 

@@ -15,6 +15,14 @@ public class ListAdsDao implements Ads {
         return ads;
     }
 
+    // Function incorrect
+    public List<Ad> category(Long id) {
+        if (ads == null) {
+            ads = generateAds();
+        }
+        return ads;
+    }
+
     public Long insert(Ad ad) {
         // make sure we have ads
         if (ads == null) {
