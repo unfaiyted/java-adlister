@@ -62,6 +62,27 @@ public class MySQLAdCategoriesDao implements AdCategories {
         }
     }
 
+    @Override
+    public List<AdCategory> inListOrder() {
+        PreparedStatement stmt;
+        try {
+            stmt = connection.prepareStatement(
+                    "SELECT  c.id,\n" +
+                    "        coalesce(c.main_id, c1.main_id) AS main_id,\n" +
+                    "        c.title AS title\n" +
+                    "\n" +
+                    "FROM categories c\n" +
+                    " LEFT OUTER JOIN categories c1 ON (c1.id = c.main_id)\n" +
+                    "ORDER BY coalesce(c1.title, c.title), c1.main_id\n");
+
+            ResultSet rs = stmt.executeQuery();
+            return createAdCategoriesFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all categories.", e);
+        }
+
+    }
+
     private AdCategory extractAdCategory(ResultSet rs) throws SQLException {
         return new AdCategory (
                 rs.getLong("id"),

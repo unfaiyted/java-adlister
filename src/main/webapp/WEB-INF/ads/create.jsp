@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -13,6 +14,29 @@
                 <label for="title">Title</label>
                 <input id="title" name="title" class="form-control" type="text">
             </div>
+
+
+            <div class="form-group">
+            <select class="selectpicker test" id="catId" name="catId">
+
+            <c:forEach var="cat" items="${categories}">
+
+                <c:choose>
+                    <c:when test="${cat.mainId=='0'}">
+                            <c:if test="${cat.id!='1'}">
+                            </optgroup>
+                            </c:if>
+                        <optgroup label="${cat.title}">
+                    </c:when>
+                    <c:otherwise>
+                       <option value="${cat.id}">${cat.title}</option>
+                    </c:otherwise>
+                </c:choose>
+
+            </c:forEach>
+            </select>
+            </div>
+
             <div class="form-group">
                 <label for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
@@ -20,5 +44,8 @@
             <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>
+
+<jsp:include page="/WEB-INF/partials/footer.jsp" />
+
 </body>
 </html>

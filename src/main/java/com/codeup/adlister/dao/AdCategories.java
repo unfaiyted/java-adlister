@@ -14,4 +14,6 @@ public interface AdCategories {
     // Returns sub category of main category
     List<AdCategory> sub(long id);
 
+    // Returns main, then sub in list order for printing out.
+    List<AdCategory> inListOrder();
 }

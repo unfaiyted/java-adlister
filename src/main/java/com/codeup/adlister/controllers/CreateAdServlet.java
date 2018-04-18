@@ -13,13 +13,16 @@ import java.io.IOException;
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        request.setAttribute("categories", DaoFactory.getAdCategoryDao().inListOrder());
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
             .forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Ad ad = new Ad(
-            1, // for now we'll hardcode the user id
+                1,// for now we'll hardcode the user id
+                Long.parseLong(request.getParameter("catId")),
             request.getParameter("title"),
             request.getParameter("description")
         );

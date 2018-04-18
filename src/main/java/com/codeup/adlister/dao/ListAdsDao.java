@@ -32,11 +32,13 @@ public class ListAdsDao implements Ads {
         ads.add(new Ad(
             1,
             1,
+            0,
             "playstation for sale",
             "This is a slightly used playstation"
         ));
         ads.add(new Ad(
             2,
+            1,
             1,
             "Super Nintendo",
             "Get your game on with this old-school classic!"
@@ -44,12 +46,14 @@ public class ListAdsDao implements Ads {
         ads.add(new Ad(
             3,
             2,
+            1,
             "Junior Java Developer Position",
             "Minimum 7 years of experience required. You will be working in the scripting language for Java, JavaScript"
         ));
         ads.add(new Ad(
             4,
             2,
+            1,
             "JavaScript Developer needed",
             "Must have strong Java skills"
         ));
