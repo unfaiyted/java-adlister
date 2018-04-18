@@ -17,8 +17,11 @@
             </div>
 
 
-            <div class="form-group">
-            <select class="selectpicker test" id="catId" name="catId">
+            <div class="form-group row">
+
+             <div class="col-6">
+                <label for="catId">Category</label>
+            <select class="selectpicker test" id="catId" name="catId" data-width="100%">
 
             <c:forEach var="cat" items="${categories}">
 
@@ -36,11 +39,19 @@
 
             </c:forEach>
             </select>
+
+             </div>
+
+
+              <div class="col-6">
+                  <label for="img-url">Image Link</label>
+                  <input class="form-control" type="url" placeholder="https://imgurl.com/image.jpg" name="img-url" id="img-url">
+              </div>
             </div>
 
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea id="description" name="description" class="form-control" type="text"></textarea>
+                <textarea id="description" name="description" class="form-control ad-description" type="text" rows="8"></textarea>
             </div>
             <input type="submit" class="btn btn-block btn-primary">
         </form>

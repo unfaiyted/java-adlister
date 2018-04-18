@@ -14,29 +14,28 @@
 <div class="container">
     <h1>Category Name</h1>
 
-
     <div class="d-flex flex-row flex-wrap">
     <c:forEach var="ad" items="${ads}">
-        <div class="p-2 m-2 ad-container">
-            <h3>${ad.title}</h3>
-            <div class="image"><img src="${ad.img}" alt="${ad.title}" class="img-fluid"></div>
-            <p>${fn:substring(ad.description, 0, 150)}...
-            </p>
-            <p>
-                <fmt:formatDate value="${ad.createdAt}" pattern="MM/dd HH:mm" />
-            </p>
 
+        <div class="p-2 m-2 ad-container align-self-start">
+
+        <div class="card " style="width: 18rem;">
+            <c:if test="${not empty ad.img}">
+                <img class="card-img-top ad-list-img" src="${ad.img}" alt="${ad.title}">
+            </c:if>
+            <div class="card-body">
+                <h5 class="card-the">${ad.title}</h5>
+                <p class="card-text">${fn:substring(ad.description, 0, 100)}...</p>
+                <a href="#" class="btn btn-primary" data-id="${ad.id}">View Ad</a>
+                <span><fmt:formatDate value="${ad.createdAt}" pattern="M/dd h:mm a" /></span>
+            </div>
+        </div>
         </div>
     </c:forEach>
     </div>
 
-
-
-
-
-
+    <jsp:include page="/WEB-INF/partials/footer.jsp" />
 </div>
 
 </body>
 </html>
-s

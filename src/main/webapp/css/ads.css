@@ -2,3 +2,15 @@
     width: 30%;
 }
 
+.ad-list-img {
+    height: 250px;
+}
+
+.ad-cat {
+    cursor: pointer;
+}
+
+.ad-description textarea {
+    height: 500px;
+
+}
