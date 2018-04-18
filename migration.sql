@@ -20,7 +20,7 @@ CREATE TABLE ads (
     title VARCHAR(240) NOT NULL,
     img VARCHAR(255),
     description TEXT NULL,
-    created_at DATETIME NOT NULL,
+    created_at TIMESTAMP NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users(id)
         ON DELETE CASCADE

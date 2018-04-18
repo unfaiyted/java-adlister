@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,12 +14,27 @@
 <div class="container">
     <h1>Category Name</h1>
 
+
+    <div class="d-flex flex-row flex-wrap">
     <c:forEach var="ad" items="${ads}">
-        <div class="col-md-6">
-            <h2>${ad.title}</h2>
-            <p>${ad.description}</p>
+        <div class="p-2 m-2 ad-container">
+            <h3>${ad.title}</h3>
+            <div class="image"><img src="${ad.img}" alt="${ad.title}" class="img-fluid"></div>
+            <p>${fn:substring(ad.description, 0, 150)}...
+            </p>
+            <p>
+                <fmt:formatDate value="${ad.createdAt}" pattern="MM/dd HH:mm" />
+            </p>
+
         </div>
     </c:forEach>
+    </div>
+
+
+
+
+
+
 </div>
 
 </body>
